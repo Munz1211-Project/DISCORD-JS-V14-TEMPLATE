@@ -14,3 +14,5 @@ An easy to use Discord bot using discord.js 13 !
 - Now you can run it !
 
 i'm use in replit <3. and so happy coding !!
+
+Regrads Munz1211
