@@ -1,6 +1,6 @@
 # DISOCRD-JS-V13-TEMPLATE
 
-An easy to use Discord bot using discord.js 13 !
+> A Discord bot template using discord.js v13 and Javascript.
 
 ## Requirements
 
