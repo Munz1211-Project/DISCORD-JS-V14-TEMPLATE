@@ -11,7 +11,6 @@
 - Use `Munz1211/DISOCRD-JS-V13-TEMPLATE` or download the .zip file
 - Do `npm i`
 - Edit the contents of the `config.json` token section
-- create a `.replit` file, then enter this `run="npm start"` // jika kamu pakai replit*
 - Now you can run it !
 
 i'm use in replit <3. and so happy coding !!
