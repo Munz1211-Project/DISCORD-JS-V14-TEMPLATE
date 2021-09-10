@@ -19,6 +19,9 @@ const client = new discord.Client({
         }
 });
 
+require('./server.js');
+
+
 const config = require("./config.json");
                           
 client.commands = new discord.Collection();
