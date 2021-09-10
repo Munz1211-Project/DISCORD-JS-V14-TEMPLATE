@@ -1,8 +1,12 @@
-const express = require("express");
-const app = express()
+const app = require("express")();
+const axios = require("axios");
 
-app.get("/", (req, res) => {
-    res.sendStatus(200)
-})
+function uptime() {
+  app.get("/", (req, res) => {
+    res.send("Online..")
+  }).listen(3000, () => {
+    console.log("Uptime Activated")
+  })
 
-app.listen(process.env.PORT)
+  axios({ method: "get", url: "https://name-project.repl.co" })
+}
