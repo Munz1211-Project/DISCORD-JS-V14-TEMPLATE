@@ -27,7 +27,7 @@ module.exports = {
                                 embeds: [embed]
                         })
                         .then(msg => {
-                                setTimeout(() => msg.delete(), 15000)
+                                setTimeout(() => msg.delete().catch(() => null), 15000)
                         })
         },
 };
