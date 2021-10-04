@@ -9,7 +9,7 @@ module.exports = {
         aliases: ["up"],
         description: "Gives you bot's uptime",
         cooldown: 3,
-        run: async(client, message, args) => {
+        run: async (client, message, args) => {
 
                 if (!message.guild.me.permissions.has("EMBED_LINKS")) return message.channel.send({
                         content: "I do not have the **MESSAGE_EMBED_LINKS** permission in this channel.\nPlease enable it."
@@ -21,8 +21,8 @@ module.exports = {
                         )
                         .setColor(config.color);
                 message.channel.send({
-                                embeds: [embed]
-                        })
+                        embeds: [embed]
+                })
                         .then(msg => {
                                 setTimeout(() => msg.delete(), 10000)
                         })
