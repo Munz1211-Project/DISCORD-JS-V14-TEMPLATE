@@ -28,7 +28,7 @@ module.exports = async (client, message) => {
                         return (await message.reply({
                                 embeds: [cool]
                         }).then(msg => {
-                                setTimeout(() => msg.delete(), 5000)
+                                setTimeout(() => msg.delete().catch(() => null), 5000)
                         })
                         )
                 }
