@@ -4,6 +4,7 @@ const discord = require("discord.js");
 const config = require('../../config.json');
 
 module.exports = {
+        
         name: "uptime",
         category: "misc",
         aliases: ["up"],
@@ -14,6 +15,7 @@ module.exports = {
                 if (!message.guild.me.permissions.has("EMBED_LINKS")) return message.channel.send({
                         content: "I do not have the **MESSAGE_EMBED_LINKS** permission in this channel.\nPlease enable it."
                 });
+                
                 const duration = moment.duration(client.uptime).format("**D [Day] , H [Hours] , m [Minutes] , s [seconds]**");
                 const embed = new discord.MessageEmbed()
                         .setDescription(
