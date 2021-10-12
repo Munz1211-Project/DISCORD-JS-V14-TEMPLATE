@@ -3,6 +3,7 @@ const config = require('../../config.json');
 const timezone = require("moment-timezone");
 
 module.exports = {
+        
         name: "ping",
         category: "misc",
         aliases: [],
@@ -13,6 +14,7 @@ module.exports = {
                 if (!message.guild.me.permissions.has("EMBED_LINKS")) return message.channel.send({
                         content: "I do not have the **MESSAGE_EMBED_LINKS** permission in this channel.\nPlease enable it."
                 });
+                
                 const m = await message.channel.send('Pinging...')
                 const embed = new discord.MessageEmbed()
                         .setTitle('🏓 pong!')
