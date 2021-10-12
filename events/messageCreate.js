@@ -1,9 +1,8 @@
 const discord = require("discord.js");
 const chalk = require("chalk");
 const config = require("../config.json");
-const ms = require("ms");
 
-module.exports = async (client, message) => {
+module.exports = async(client, message) => {
 
         if (!message.content.startsWith(config.prefix) || message.author.bot || message.channel.type === 'dm') return;
         const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
@@ -15,26 +14,23 @@ module.exports = async (client, message) => {
                 client.cooldowns.set(command.name, new discord.Collection());
         }
 
-        const now = Date.now();
-        const timestamps = client.cooldowns.get(command.name);
-        const cooldownAmount = (command.cooldown) * 1000;
-        if (timestamps.has(message.author.id)) {
-                const expirationTime = timestamps.get(message.author.id) + cooldownAmount;
-                if (timestamps && now < expirationTime) {
-                        const timeLeft = ms(expirationTime - now, { long: true });
-                        // const timeLeft = Math.floor((expirationTime - now) % 6);
-                        let cool = new discord.MessageEmbed()
-                                .setDescription(`❌ Please wait ${timeLeft} more before reusing the ${command.name} command.`)
-                        return (await message.reply({
-                                embeds: [cool]
-                        }).then(msg => {
-                                setTimeout(() => msg.delete().catch(() => null), 5000)
-                        })
-                        )
-                }
-        }
-        timestamps.set(message.author.id, now);
+        let member = message.member;
+        let now = Date.now();
+        let timeStamp = client.cooldowns.get(command.name) || new Collection();
+        let cool = command.cooldown || 5;
+        let userCool = timeStamp.get(message.author.id) || 0;
+        let estimated = userCool + cool * 1000 - now;
 
+        if (userCool && estimated > 0) {
+                let cool = new discord.MessageEmbed()
+                        .setDescription(`❌ Please wait ${( estimated / 1000 ).toFixed()}s more before reusing the ${command.name} command.`)
+                return (await message.reply({ embeds: [cool] })
+                        .then(msg => { setTimeout(() => msg.delete().catch(() => null), estimated) })
+                )
+        }
+
+        timeStamp.set(message.author.id, now);
+        client.cooldowns.set(command.name, timeStamp);
         try {
                 command.run(client, message, args)
         } catch (error) {
@@ -43,5 +39,4 @@ module.exports = async (client, message) => {
         } finally {
                 console.log(chalk.bgBlack.whiteBright(`> User ${message.author.username} | used | ${command.name} | command. Message content: | ${message.content} |`));
         }
-
 };

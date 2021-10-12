@@ -7,7 +7,7 @@ module.exports = {
         category: "misc",
         aliases: [],
         description: "Get bot's real time ping status",
-        cooldown: 3,
+        cooldown: 10,
         run: async(client, message, args) => {
 
                 if (!message.guild.me.permissions.has("EMBED_LINKS")) return message.channel.send({

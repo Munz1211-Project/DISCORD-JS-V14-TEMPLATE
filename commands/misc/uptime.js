@@ -8,7 +8,7 @@ module.exports = {
         category: "misc",
         aliases: ["up"],
         description: "Gives you bot's uptime",
-        cooldown: 3,
+        cooldown: 10,
         run: async (client, message, args) => {
 
                 if (!message.guild.me.permissions.has("EMBED_LINKS")) return message.channel.send({

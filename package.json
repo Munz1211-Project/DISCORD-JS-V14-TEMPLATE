@@ -8,11 +8,7 @@
     "start": "node ."
   },
   "dependencies": {
-    "ms": "^2.1.3"
-  },
-  "devDependencies": {
     "ascii-table": "0.0.9",
-    "axios": "^0.21.4",
     "chalk": "^4.1.2",
     "child_process": "^1.0.2",
     "discord.js": "^13.1.0",
@@ -24,6 +20,7 @@
     "node": "^16.6.1",
     "node-fetch": "^2.6.1"
   },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Munz1211/DISCORD-JS-V13-TEMPLATE.git"
