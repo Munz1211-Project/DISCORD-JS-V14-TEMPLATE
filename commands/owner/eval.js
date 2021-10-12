@@ -13,11 +13,14 @@ module.exports = {
                 if (!message.guild.me.permissions.has("EMBED_LINKS")) return message.channel.send({
                         content: "I do not have the **MESSAGE_EMBED_LINKS** permission in this channel.\nPlease enable it."
                 });
+                
                 if (message.author.id !== config.ownerID) return message.channel.send('Can\'t execute this command!')
+                
                 const msg = message;
                 const bot = client;
                 const evalEmbed = new discord.MessageEmbed().setThumbnail(message.author.displayAvatarURL())
                 let code = args.join(" ");
+                
                 try {
                         const input = clean(code);
                         if (!code) return msg.channel.send("What you'r **JavaScript Codes** ?");
