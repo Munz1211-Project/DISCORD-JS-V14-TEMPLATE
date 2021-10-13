@@ -1,6 +1,6 @@
 const discord = require("discord.js");
-require('./server.js');
 const config = require("./config.json");
+require('./server.js');
 
 const client = new discord.Client({
     restTimeOffset: 0,
