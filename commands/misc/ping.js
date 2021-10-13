@@ -31,4 +31,5 @@ module.exports = {
             .then(msg => {
                 setTimeout(() => msg.delete().catch(() => null), 15000)
             })
-    },
+    }
+}
