@@ -15,7 +15,7 @@ const client = new discord.Client({
             sweepInterval: 300,
             sweepFilter: discord.LimitedCollection.filterByLifetime({
                 lifetime: 60,
-                getComparisonTimestamp: m => m.editedTimestamp ? ? m.createdTimestamp,
+                getComparisonTimestamp: m => m.editedTimestamp ?? m.createdTimestamp,
             })
         }
     }
