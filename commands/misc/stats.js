@@ -1,10 +1,10 @@
-const discord = require('discord.js')
+const discord = require('discord.js');
 const config = require('../../config.json');
 const timezone = require("moment-timezone");
 const moment = require("moment");
 require("moment-duration-format");
 const ms = require("ms");
-const os = require("node:os")
+const os = require("node:os");
 const packageJson = require("../../package.json");
 
 module.exports = {
@@ -12,7 +12,7 @@ module.exports = {
     name: "stats",
     aliases: [],
     description: "Get bot's real time ping status",
-    cooldown: 10,
+    cooldown: 5,
     run: async (client, message, args) => {
 
         try {
@@ -41,9 +41,9 @@ module.exports = {
         } catch (e) {
             const embed = new discord.MessageEmbed()
                 .setDescription(`${e}`)
+                .setColor(config.color)
             message.channel.send({ embeds: [embed] })
         }
-
     }
 };
 

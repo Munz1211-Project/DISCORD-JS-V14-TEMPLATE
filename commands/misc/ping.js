@@ -7,22 +7,29 @@ module.exports = {
     name: "ping",
     aliases: ["p"],
     description: "Get bot's real time ping status",
-    cooldown: 10,
+    cooldown: 5,
     run: async (client, message, args) => {
 
         if (!message.guild.me.permissions.has("EMBED_LINKS")) return message.channel.send({
             content: "I do not have the **MESSAGE_EMBED_LINKS** permission in this channel.\nPlease enable it."
         });
 
-        const m = await message.channel.send('Pinging...')
-        const embed = new discord.MessageEmbed()
-            .addField('⏳ Latency', `_**${m.createdTimestamp - message.createdTimestamp}ms**_`, true)
-            .addField('💓 API', `_**${client.ws.ping}ms**_`, true)
-            .setColor(config.color)
-            .setFooter(`Requested by ${message.author.username} | Today at ${timezone.tz("Asia/Jakarta").format("HH:mma") + " "}`, message.author.displayAvatarURL({
-                dynamic: true
-            }))
+        try{
+            const m = await message.channel.send('Pinging...')
+            const embed = new discord.MessageEmbed()
+                .addField('⏳ Latency', `_**${m.createdTimestamp - message.createdTimestamp}ms**_`, true)
+                .addField('💓 API', `_**${client.ws.ping}ms**_`, true)
+                .setColor(config.color)
+                .setFooter(`Requested by ${message.author.username} | Today at ${timezone.tz("Asia/Jakarta").format("HH:mma") + " "}`, message.author.displayAvatarURL({
+                    dynamic: true
+                }))
 
-        setTimeout(function() { m.edit({ content: ' ', embeds: [embed] }) }, 2000);
+            setTimeout(function() { m.edit({ content: ' ', embeds: [embed] }) }, 2000);
+        } catch (e) {
+            const embed = new discord.MessageEmbed()
+                .setDescription(`${e}`)
+                .setColor(config.color)
+            message.channel.send({ embeds: [embed] })
+        }
     }
 }
