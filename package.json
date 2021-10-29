@@ -1,5 +1,5 @@
 {
-    "name": "DISCORD-JS-V13-TEMPLATE",
+    "name": "discord-js-v13-template",
     "version": "1.0.0",
     "description": "A Discord bot template using discord.js v13 and Javascript.",
     "main": "index.js",
@@ -8,19 +8,20 @@
         "start": "node ."
     },
     "dependencies": {
+        "@discordjs/builders": "^0.7.0",
         "ascii-table": "0.0.9",
         "chalk": "^4.1.2",
         "child_process": "^1.0.2",
-        "discord.js": "^13.1.0",
+        "discord.js": "^13.2.0",
         "express": "^4.17.1",
         "fs": "^0.0.2",
         "moment": "^2.29.1",
         "moment-duration-format": "^2.3.2",
         "moment-timezone": "^0.5.33",
         "node": "^17.0.1",
-        "node-fetch": "^2.6.1"
+        "node-fetch": "^2.6.1",
+        "petitio": "^1.4.0"
     },
-    "devDependencies": {},
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Munz1211/DISCORD-JS-V13-TEMPLATE.git"
