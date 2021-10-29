@@ -24,7 +24,6 @@ const client = new discord.Client({
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
 client.cooldowns = new discord.Collection();
-client.userVoice = new discord.Collection();
 
 ["commands", "events"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
