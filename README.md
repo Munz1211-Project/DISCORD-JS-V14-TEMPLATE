@@ -11,7 +11,6 @@
 - Use `Munz1211/DISOCRD-JS-V13-TEMPLATE` or download the .zip file
 - Do `npm i`
 - Edit the contents of the `config.json` token section
-- Edit the contents of the `server.js` url section
 - Now you can run it !
 
 i'm use in replit <3. and so happy coding !!
