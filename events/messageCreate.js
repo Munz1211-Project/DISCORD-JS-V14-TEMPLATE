@@ -14,7 +14,6 @@ module.exports = async (client, message) => {
         client.cooldowns.set(command.name, new discord.Collection());
     }
 
-    let member = message.member;
     let now = Date.now();
     let timeStamp = client.cooldowns.get(command.name) || new Collection();
     let cool = command.cooldown || 5;
