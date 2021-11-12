@@ -9,6 +9,7 @@ module.exports = {
     name: "eval",
     aliases: ["ev"],
     description: "evaluation you code.",
+    category: "Owner",
     cooldown: 3,
     run: async (client, message, args) => {
 
