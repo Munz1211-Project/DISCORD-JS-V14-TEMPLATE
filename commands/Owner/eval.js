@@ -18,7 +18,6 @@ module.exports = {
         let code = args.join(" ");
         
         try {
-                const input = clean(code);
                 if (!code) return msg.channel.send("What you'r **JavaScript Codes** ?");
 
                 let evaled;
