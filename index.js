@@ -1,5 +1,7 @@
 const discord = require("discord.js");
 const config = require("./config.json");
+const Enmap = require("enmap");
+const fs = require('fs');
 require('./server.js');
 
 const client = new discord.Client({
@@ -21,12 +23,30 @@ const client = new discord.Client({
     }
 });
 
+client.settings = new Enmap({
+	name: "settings",
+	fetchAll: false,
+	autoFetch: true,
+	cloneLevel: "deep"
+});
+
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
 client.cooldowns = new discord.Collection();
+client.logger = require('./Utils/logger');
 
 ["commands", "events"].forEach(handler => {
     require(`./handlers/${handler}`)(client);
 });
 
-client.login(config.token).catch(() => { console.log('Invaid TOKEN!') });
+client.on('error', error => client.logger.log(error, "error"));
+client.on('warn', info => client.logger.log(info, "warn"));
+process.on('unhandledRejection', error => client.logger.log("UNHANDLED_REJECTION\n" + error, "error"));
+process.on('uncaughtException', error => {
+    client.logger.log("UNCAUGHT_EXCEPTION\n" + error, "error");
+    client.logger.log("Uncaught Exception is detected, restarting...", "info");
+    process.exit(1);
+});
+
+
+client.login(config.token).catch(() => { client.logger.log('Invaid TOKEN!', "warn") });
