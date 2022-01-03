@@ -15,7 +15,7 @@ const client = new discord.Client({
     cacheWithLimits: {
         MessageManager: {
             sweepInterval: 300,
-            sweepFilter: discord.LimitedCollection.filterByLifetime({
+            sweepFilter: discord.Sweepers.filterByLifetime({
                 lifetime: 60,
                 getComparisonTimestamp: m => m.editedTimestamp ?? m.createdTimestamp,
             })
