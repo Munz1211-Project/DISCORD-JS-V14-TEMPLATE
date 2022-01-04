@@ -13,7 +13,7 @@
         "discord-reply": "^0.1.2",
         "discord.js": "^13.5.0",
         "enmap": "^5.8.7",
-        "express": "^4.17.1",
+        "express": "^4.17.2",
         "fs": "^0.0.2",
         "moment": "^2.29.1",
         "moment-duration-format": "^2.3.2",
