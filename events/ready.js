@@ -1,4 +1,3 @@
-const chalk = require("chalk");
 const config = require("../config.json");
 
 module.exports = async (client) => {
