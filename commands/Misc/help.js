@@ -23,8 +23,6 @@ module.exports = {
             const emo = {
                 Misc: "❓ ・ ",
                 Util: "⚙ ・ ",
-                Filter: "📂 ・ ",
-                Music: "🎵 ・ ",
                 Owner: "👑 ・ ",
             };
     
