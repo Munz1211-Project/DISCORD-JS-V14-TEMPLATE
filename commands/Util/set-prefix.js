@@ -10,25 +10,25 @@ module.exports = {
     cooldown: 5,
     run: async (client, message, args) => {
 
-        if (!message.guild.me.permissions.has("EMBED_LINKS")) return message.channel.send({
+        if (!message.guild.members.me.permissions.has("EMBED_LINKS")) return message.channel.send({
             content: "I do not have the **MESSAGE_EMBED_LINKS** permission in this channel.\nPlease enable it."
         });
 
-        const embedmissingperms = new discord.MessageEmbed()
+        const embedmissingperms = new discord.EmbedBuilder()
             .setDescription(`⚠ | ${message.author.username}, Missing Permission **MANAGE_GUILD**!`)
-            .setColor("RED");
+            .setColor("#FF0000");
 
-        const embedmissing = new discord.MessageEmbed()
+        const embedmissing = new discord.EmbedBuilder()
             .setDescription(`⚠ | Please type the prefix you want to set!`)
-            .setColor("RED");
+            .setColor("#FF0000");
 
-        const embedtoolong = new discord.MessageEmbed()
+        const embedtoolong = new discord.EmbedBuilder()
             .setDescription(`❌ | Prefix's length shouldn't be longer than 5 letters`)
-            .setColor("RED");
+            .setColor("#FF0000");
 
-        const embedsame = new discord.MessageEmbed()
+        const embedsame = new discord.EmbedBuilder()
             .setDescription(`⚠ Prefix is same to current's`)
-            .setColor("RED");
+            .setColor("#FF0000");
 
         if (!message.member.permissions.has("MANAGE_GUILD")) return message.channel.send({ embeds: [embedmissingperms] });
 
@@ -40,14 +40,14 @@ module.exports = {
 
         if (args[0] === "reset") {
             client.settings.delete(message.guildId, "prefix")
-            const embed = new discord.MessageEmbed()
+            const embed = new discord.EmbedBuilder()
                 .setDescription(`Prefix reset to Default : \`${config.prefix}\``)
                 .setColor(config.color)
             return message.channel.send({ embeds: [embed] });
         }
 
         client.settings.set(message.guildId, args[0], "prefix");
-        const embed = new discord.MessageEmbed()
+        const embed = new discord.EmbedBuilder()
             .setDescription(`Prefix Changed to : \`${args[0]}\``)
             .setColor(config.color)
         message.channel.send({ embeds: [embed] });
