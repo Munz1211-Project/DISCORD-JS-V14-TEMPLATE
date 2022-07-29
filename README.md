@@ -8,7 +8,7 @@
 
 ## Install it
 
-- Use `Munz1211/DISOCRD-JS-V13-TEMPLATE` or download the .zip file
+- Use `Munz1211/DISOCRD-JS-V14-TEMPLATE` or download the .zip file
 - Do `npm i`
 - Edit the contents of the `config.json` token section
 - Now you can run it !
