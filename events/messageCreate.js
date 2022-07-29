@@ -9,7 +9,7 @@ module.exports = async (client, message) => {
     
     let prefix = client.settings.get(message.guildId, "prefix");
 
-    let teag = new discord.MessageEmbed()
+    let teag = new discord.EmbedBuilder()
         .setColor(config.color)
         .setDescription(`👋 | Hey **${message.author.tag}**, My prefix for this guild is: \`${prefix}\``)
     if (message.content === `<@!${client.user.id}>` || message.content === `<@${client.user.id}>`)
@@ -33,7 +33,7 @@ module.exports = async (client, message) => {
     let estimated = userCool + cool * 1000 - now;
 
     if (userCool && estimated > 0) {
-        let cool = new discord.MessageEmbed()
+        let cool = new discord.EmbedBuilder()
             .setDescription(`❌ Please wait ${( estimated / 1000 ).toFixed()}s more before reusing the ${command.name} command.`)
         return (await message.reply({ embeds: [cool] })
             .then(msg => { setTimeout(() => msg.delete().catch(() => null), estimated) })
