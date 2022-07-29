@@ -13,6 +13,6 @@
 - Edit the contents of the `config.json` token section
 - Now you can run it !
 
-i'm use in replit <3. and so happy coding !!
+Still Update. and so happy coding !!
 
 Regrads Munz1211
