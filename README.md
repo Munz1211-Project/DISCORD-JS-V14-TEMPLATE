@@ -1,6 +1,6 @@
-# DISCORD-JS-V13-TEMPLATE
+# DISCORD-JS-V14-TEMPLATE
 
-> A Discord bot template using discord.js v13 and Javascript. No with Slash command
+> A Discord bot template using discord.js v14 and Javascript. No with Slash command
 
 ## Requirements
 
