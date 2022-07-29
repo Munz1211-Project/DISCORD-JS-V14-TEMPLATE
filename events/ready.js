@@ -1,20 +1,26 @@
 const config = require("../config.json");
+const discord = require("discord.js");
 
 module.exports = async (client) => {
 
     client.user.setPresence({
         status: "idle"
     });
+
     function randomstatus() {
+
         let status = [
             `${config.prefix}help | ${client.guilds.cache.reduce((a, b) => a + b.memberCount, 0)} Members 👥`,
             `${config.prefix}help | ${client.guilds.cache.size} Server 🌐`,
             `${config.prefix}help | 24/7 ONLINE...!`
         ];
+
         let rstatus = Math.floor(Math.random() * status.length);
+        
         client.user.setActivity(status[rstatus], {
-            type: "PLAYING"
+            type: discord.ActivityType.Playing
         });
+
     };
     setInterval(randomstatus, 15000);
     
