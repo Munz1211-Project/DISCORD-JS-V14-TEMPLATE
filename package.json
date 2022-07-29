@@ -1,6 +1,6 @@
 {
     "name": "discord-js-v14-template",
-    "version": "1.0.0",
+    "version": "1.0.5",
     "description": "A Discord bot template using discord.js v14 and Javascript.",
     "main": "index.js",
     "scripts": {
