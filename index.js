@@ -6,7 +6,7 @@ require('./server.js');
 const client = new discord.Client({
     restTimeOffset: 0,
     restWsBridgetimeout: 100,
-    intents: 32767,
+    intents: [discord.GatewayIntentBits.Guilds, discord.GatewayIntentBits.GuildMessages, discord.GatewayIntentBits.GuildMembers, discord.GatewayIntentBits.MessageContent],
     allowedMentions: {
         parse: ["users"],
         repliedUser: true
