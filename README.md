@@ -4,7 +4,7 @@
 
 ## Requirements
 
-- Node JS 16.6 or higher
+- Node JS STABLE LASTEST
 
 ## Install it
 
