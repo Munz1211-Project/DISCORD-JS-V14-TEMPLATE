@@ -1,6 +1,6 @@
 const config = require('../../config.json');
 const child = require("child_process");
-const petitio = require("petitio");
+const axios = require("axios");
 
 module.exports = {
 
@@ -22,7 +22,7 @@ module.exports = {
 
             try{
                 if (res.length > 2000) {
-                    const { key } = await petitio("https://bin.hzmi.xyz/documents", "POST").body(res).json();
+                    const { data } = await axios.post("https://bin.hzmi.xyz/documents", res)
                     await message.channel.send({ 
                     content: "Eval...!",
                     components: [{
@@ -30,7 +30,7 @@ module.exports = {
                         "components": [{
                             "type": 2,
                             "label": "Result",
-                            "url": `https://bin.hzmi.xyz/${key}.js`,
+                            "url": `https://bin.hzmi.xyz/${data.key}.js`,
                             "style": 5
                         }]
                     }]
