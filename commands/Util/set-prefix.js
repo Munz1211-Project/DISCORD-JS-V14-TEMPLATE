@@ -10,7 +10,7 @@ module.exports = {
     cooldown: 5,
     run: async (client, message, args) => {
 
-        if (!message.guild.members.me.permissions.has("EMBED_LINKS")) return message.channel.send({
+        if (!message.guild.members.me.permissions.has("EmbedLinks")) return message.channel.send({
             content: "I do not have the **MESSAGE_EMBED_LINKS** permission in this channel.\nPlease enable it."
         });
 
@@ -30,7 +30,7 @@ module.exports = {
             .setDescription(`⚠ Prefix is same to current's`)
             .setColor("#FF0000");
 
-        if (!message.member.permissions.has("MANAGE_GUILD")) return message.channel.send({ embeds: [embedmissingperms] });
+        if (!message.member.permissions.has("ManageGuild")) return message.channel.send({ embeds: [embedmissingperms] });
 
         await client.settings.ensure(message.guild.id, { prefix: config.prefix });
         if (!args[0]) return message.channel.send({ embeds: [embedmissing] });
