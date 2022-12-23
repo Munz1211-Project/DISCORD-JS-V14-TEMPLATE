@@ -28,7 +28,7 @@ module.exports = {
     
             const embed = new discord.EmbedBuilder()
                 .setAuthor({ name: `❯ ・ Commands list - ${client.commands.size} Commands`, iconURL: client.user.displayAvatarURL() })
-                .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
+                .setThumbnail(client.user.displayAvatarURL({ forceStatic: true }))
                 .setColor(config.color)
                 .setFooter({ text: `Requested by ${message.author.username} | Today at ${timezone.tz("Asia/Jakarta").format("HH:mma") + " "}`, iconURL: message.author.displayAvatarURL({ 
                         forceStatic: true 
