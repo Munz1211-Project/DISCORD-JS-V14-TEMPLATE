@@ -40,7 +40,7 @@ module.exports = {
 \`\`\`
             `)
                 .setFooter({ text: `Requested by ${message.author.username} | Today at ${timezone.tz("Asia/Jakarta").format("HH:mma") + " "}`, iconURL: message.author.displayAvatarURL({ 
-                        dynamic: true 
+                        forceStatic: true 
                     }) 
                 })
             message.channel.send({ embeds: [embed] })
