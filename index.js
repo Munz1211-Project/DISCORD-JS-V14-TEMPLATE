@@ -4,22 +4,20 @@ const Enmap = require("enmap");
 require('./server.js');
 
 const client = new discord.Client({
-    restTimeOffset: 0,
-    restWsBridgetimeout: 100,
+    closeTimeout: 3_000 ,
+    waitGuildTimeout: 15_000,
     intents: [discord.GatewayIntentBits.Guilds, discord.GatewayIntentBits.GuildMessages, discord.GatewayIntentBits.GuildMembers, discord.GatewayIntentBits.MessageContent],
     allowedMentions: {
         parse: ["users"],
         repliedUser: true
     },
-    cacheWithLimits: {
-        MessageManager: {
-            sweepInterval: 300,
-            sweepFilter: discord.Sweepers.filterByLifetime({
-                lifetime: 60,
-                getComparisonTimestamp: m => m.editedTimestamp ?? m.createdTimestamp,
-            })
-        }
-    }
+    sweepers: {
+		...discord.Options.DefaultSweeperSettings,
+		messages: {
+			interval: 3600, // Every hour...
+			lifetime: 1800,	// Remove messages older than 30 minutes.
+		},
+	},
 });
 
 client.settings = new Enmap({
