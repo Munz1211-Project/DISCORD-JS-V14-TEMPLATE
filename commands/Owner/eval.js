@@ -1,5 +1,5 @@
 const config = require('../../config.json');
-const petitio = require("petitio");
+const axios = require("axios").default;
 const util = require("util");
 
 module.exports = {
@@ -45,7 +45,7 @@ module.exports = {
                 output = output.replace(new RegExp(bot.token, "g"), "[TOKEN]");
 
                 if (output.length > 1024) {
-                    const { key } = await petitio("https://bin.hzmi.xyz/documents", "POST").body(output).json();
+                const { data } = await axios.post('https://bin.hzmi.xyz/documents', output)
                     await msg.channel.send({ 
                     content: "Eval...!",
                     components: [{
@@ -53,7 +53,7 @@ module.exports = {
                         "components": [{
                             "type": 2,
                             "label": "Result",
-                            "url": `https://bin.hzmi.xyz/${key}.js`,
+                            "url": `https://bin.hzmi.xyz/${data.key}.js`,
                             "style": 5
                         }]
                     }]
