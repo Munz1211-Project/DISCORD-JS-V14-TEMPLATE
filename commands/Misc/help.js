@@ -31,7 +31,7 @@ module.exports = {
                 .setThumbnail(client.user.displayAvatarURL({ dynamic: true }))
                 .setColor(config.color)
                 .setFooter({ text: `Requested by ${message.author.username} | Today at ${timezone.tz("Asia/Jakarta").format("HH:mma") + " "}`, iconURL: message.author.displayAvatarURL({ 
-                        dynamic: true 
+                        forceStatic: true 
                     }) 
                 })
     
@@ -65,7 +65,7 @@ module.exports = {
                 .addFields({ name: 'Aliases', value: `\`${command.aliases.length ? command.aliases.join(" | ") : "none."}\``, inline: true })
                 .addFields({ name: "Command Description:", value: command.description ? command.description : "No description for this command.", inline: true })
                 .setFooter({ text: `Requested by ${message.author.username} | Today at ${timezone.tz("Asia/Jakarta").format("HH:mma") + " "}`, iconURL: message.author.displayAvatarURL({
-                        dynamic: true
+                        forceStatic: true
                     })
                 })
                 .setColor(config.color);
