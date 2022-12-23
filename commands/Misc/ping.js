@@ -22,7 +22,7 @@ module.exports = {
                 .addFields({ name: '💓 API', value: `_**${client.ws.ping}ms**_`, inline: true })
                 .setColor(config.color)
                 .setFooter({ text: `Requested by ${message.author.username} | Today at ${timezone.tz("Asia/Jakarta").format("HH:mma") + " "}`, iconURL: message.author.displayAvatarURL({ 
-                        dynamic: true 
+                        forceStatic: true 
                     }) 
                 })
 
