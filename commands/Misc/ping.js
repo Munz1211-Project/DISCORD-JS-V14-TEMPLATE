@@ -11,7 +11,7 @@ module.exports = {
     cooldown: 5,
     run: async (client, message, args) => {
 
-        if (!message.guild.members.me.permissions.has("EMBED_LINKS")) return message.channel.send({
+        if (!message.guild.members.me.permissions.has("EmbedLinks")) return message.channel.send({
             content: "I do not have the **MESSAGE_EMBED_LINKS** permission in this channel.\nPlease enable it."
         });
 
