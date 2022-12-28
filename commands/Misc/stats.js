@@ -11,7 +11,7 @@ module.exports = {
 
     name: "stats",
     aliases: [],
-    description: "Get bot's real time ping status",
+    description: "Information Status Bot's",
     category: "Misc",
     cooldown: 5,
     run: async (client, message, args) => {
