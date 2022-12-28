@@ -11,7 +11,7 @@ module.exports = {
 
     name: "stats",
     aliases: [],
-    description: "Information Status Bot's",
+    description: "Show the bot statistic",
     category: "Misc",
     cooldown: 5,
     run: async (client, message, args) => {
