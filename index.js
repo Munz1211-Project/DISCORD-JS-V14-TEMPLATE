@@ -11,13 +11,14 @@ const client = new discord.Client({
         parse: ["users"],
         repliedUser: true
     },
-    sweepers: {
-		...discord.Options.DefaultSweeperSettings,
-		messages: {
-			interval: 3600, // Every hour...
-			lifetime: 1800,	// Remove messages older than 30 minutes.
-		},
-	},
+    makeCache: discord.Options.cacheWithLimits({
+	...discord.Options.DefaultMakeCacheSettings,
+	ReactionManager: 0,
+        GuildMemberManager: {
+			maxSize: 200,
+			keepOverLimit: member => member.id === client.user.id,
+		}
+	}),
 });
 
 client.settings = new Enmap({
