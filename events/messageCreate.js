@@ -13,8 +13,11 @@ module.exports = async (client, message) => {
         .setColor(config.color)
         .setDescription(`👋 | Hey **${message.author.tag}**, My prefix for this guild is: \`${prefix}\``)
     if (message.content === `<@!${client.user.id}>` || message.content === `<@${client.user.id}>`)
-    return message.channel.send({ embeds: [teag] })
 
+    return message.channel.send({ embeds: [teag] })
+    
+    await message.guild.members.fetch()
+    
     if (!message.content.startsWith(prefix) || message.author.bot || message.channel.type === 'dm') return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
