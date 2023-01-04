@@ -16,8 +16,6 @@ module.exports = async (client, message) => {
 
     return message.channel.send({ embeds: [teag] })
     
-    await message.guild.members.fetch()
-    
     if (!message.content.startsWith(prefix) || message.author.bot || message.channel.type === 'dm') return;
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
