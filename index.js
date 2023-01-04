@@ -6,14 +6,23 @@ require('./server.js');
 const client = new discord.Client({
     closeTimeout: 3_000 ,
     waitGuildTimeout: 15_000,
-    intents: [discord.GatewayIntentBits.Guilds, discord.GatewayIntentBits.GuildMessages, discord.GatewayIntentBits.GuildMembers, discord.GatewayIntentBits.MessageContent],
+    intents: [
+        discord.GatewayIntentBits.Guilds,
+        discord.GatewayIntentBits.GuildMembers,
+        discord.GatewayIntentBits.GuildBans,
+        discord.GatewayIntentBits.GuildVoiceStates,
+        discord.GatewayIntentBits.GuildPresences,
+        discord.GatewayIntentBits.GuildMessages,
+        discord.GatewayIntentBits.GuildMessageTyping,
+        discord.GatewayIntentBits.MessageContent
+    ],
     allowedMentions: {
         parse: ["users"],
         repliedUser: true
     },
     makeCache: discord.Options.cacheWithLimits({
-	...discord.Options.DefaultMakeCacheSettings,
-	ReactionManager: 0,
+		...discord.Options.DefaultMakeCacheSettings,
+		ReactionManager: 0,
         GuildMemberManager: {
 			maxSize: 200,
 			keepOverLimit: member => member.id === client.user.id,
