@@ -14,7 +14,7 @@
         "discord-reply": "^0.1.2",
         "discord.js": "^14.7.1",
         "enmap": "^5.9.5",
-        "express": "^4.18.2",
+        "express": "^5.0.0",
         "fs": "^0.0.2",
         "moment": "^2.29.4",
         "moment-duration-format": "^2.3.2",
